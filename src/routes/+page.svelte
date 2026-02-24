@@ -132,19 +132,9 @@
         Sivayogeith <span class="text-2xl">aka Sage, themeowingsage</span>
       </h1>
       <p class="text-xl">
-        just a 14 y/o boy that loves to code, minecraft and food!
+        just a 14 y/o American Indian boy that loves to code, minecraft and food!
       </p>
     </div>
-  </div>
-
-  <div
-    class="flex flex-col border border-red-800 rounded-4xl 2xl:w-[30vw] justify-center 2xl:ms-20 px-10 text-xl gap-1"
-  >
-    <p class="text-2xl mb-5 font-semibold">fun facts!</p>
-    <p>born on 16th November 2011</p>
-    <p>not a furry, i just love cats :3</p>
-    <p>american indian</p>
-    <p>born in California, USA</p>
   </div>
 </div>
 <h1 class="text-center mt-8 mb-5 text-xl">projects :3</h1>
@@ -152,8 +142,8 @@
 <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 grid-col-1 gap-5 mx-10">
   {#each projects as p}
     <div class="rounded-xl border border-red-800 p-5">
-      <div class="flex justify-between mb-5">
-        <div class="flex flex-col">
+      <div class="flex justify-between mb-5 md:flex-row flex-col">
+        <div class="flex flex-col md:mb-0 mb-5">
           <p class="text-3xl">{p.name}</p>
           <div class="text-lg flex gap-4 text-red-800">
             <a href={p.github} class="hover:text-red-700">Github</a>
@@ -179,7 +169,7 @@
         <img
           src={p.image}
           alt={p.name}
-          class="h-auto ms-2 max-w-50 max-h-30 rounded-2xl border border-red-800"
+          class="w-auto ms-2 md:max-w-50 max-w-60 max-h-30 rounded-2xl border border-red-800 self-center"
         />
       </div>
       <p class="text-xl">
