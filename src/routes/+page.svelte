@@ -40,7 +40,7 @@
     {
       name: "Sage's Portfolio",
       github: "https://github.com/Sivayogeith/portfolio",
-      demo: "",
+      demo: "https://themeowingsage.vercel.app/",
       description: "This website!",
       image: "/portfolio.png",
       ysws: "Flavortown",
@@ -122,9 +122,9 @@
   ];
 </script>
 
-<div class="flex lg:flex-row flex-col justify-between m-12 gap-10">
+<div class="flex 2xl:flex-row flex-col justify-between m-12 gap-10">
   <div
-    class="flex lg:flex-row flex-col items-center lg:w-[70vw] lg:gap-0 gap-10"
+    class="flex lg:flex-row flex-col items-center 2xl:w-[70vw] lg:gap-0 gap-10"
   >
     <img src={choco} class="rounded-full me-12 size-60" alt="choco pic :3" />
     <div>
@@ -138,7 +138,7 @@
   </div>
 
   <div
-    class="flex flex-col border border-red-800 rounded-4xl lg:w-[30vw] justify-center lg:ms-20 p-10 text-xl gap-1"
+    class="flex flex-col border border-red-800 rounded-4xl 2xl:w-[30vw] justify-center 2xl:ms-20 px-10 text-xl gap-1"
   >
     <p class="text-2xl mb-5 font-semibold">fun facts!</p>
     <p>born on 16th November 2011</p>
@@ -149,7 +149,7 @@
 </div>
 <h1 class="text-center mt-8 mb-5 text-xl">projects :3</h1>
 
-<div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-5 mx-10">
+<div class="grid 2xl:grid-cols-3 xl:grid-cols-2 grid-col-1 gap-5 mx-10">
   {#each projects as p}
     <div class="rounded-xl border border-red-800 p-5">
       <div class="flex justify-between mb-5">
@@ -179,7 +179,7 @@
         <img
           src={p.image}
           alt={p.name}
-          class="h-auto max-w-50 max-h-30 rounded-2xl border border-red-800"
+          class="h-auto ms-2 max-w-50 max-h-30 rounded-2xl border border-red-800"
         />
       </div>
       <p class="text-xl">
@@ -202,7 +202,7 @@
 </Marquee>
 <hr class="text-red-800"/>
 <h1 class="text-center mt-8 mb-5 text-xl">social media :3</h1>
-<div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-5 mx-10">
+<div class="grid 2xl:grid-cols-3 xl:grid-cols-2 grid-col-1 gap-5 mx-10">
   {#each socialMedia as s}
     <div class="rounded-xl border border-red-800 p-5 flex flex-col gap-5">
       <a href={s.link} target="_blank" class="text-3xl text-red-800 hover:text-red-700">{s.name}</a>
