@@ -1,6 +1,9 @@
 <script lang="ts">
   import Marquee from "svelte-fast-marquee";
   import choco from "$lib/assets/choco.png";
+  import { onMount } from "svelte";
+  import SunIcon from "$lib/SunIcon.svelte";
+  import MoonIcon from "$lib/MoonIcon.svelte";
 
   const YSWS: { [type: string]: string } = {
     "Summer of Making": "https://summer.hackclub.com",
@@ -120,6 +123,23 @@
         "I upload minecraft videos, mainly PvP! <br> (I used to upload cats!) ",
     },
   ];
+
+  let theme = $state("");
+
+  onMount(() => {
+    if (!localStorage.getItem("theme")) {
+      theme = window.matchMedia("(prefers-color-scheme: dark)")
+        ? "dark"
+        : "light";
+    } else {
+      theme = localStorage.getItem("theme") || "light";
+    }
+  });
+
+  $effect(() => {
+    document.body.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  });
 </script>
 
 <div class="flex 2xl:flex-row flex-col justify-between m-12 gap-10">
@@ -132,7 +152,8 @@
         Sivayogeith <span class="text-2xl">aka Sage, themeowingsage</span>
       </h1>
       <p class="text-xl">
-        just a 14 y/o American Indian boy that loves to code, minecraft and food!
+        just a 14 y/o American Indian boy that loves to code, minecraft and
+        food!
       </p>
     </div>
   </div>
@@ -141,13 +162,20 @@
 
 <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 grid-col-1 gap-5 mx-10">
   {#each projects as p}
-    <div class="rounded-xl border border-red-800 p-5">
+    <div
+      class="rounded-xl border border-red-800 dark:border-red-500 p-5 hover:shadow-xl shadow-red-300 dark:shadow-red-700 shadow-(right)"
+    >
       <div class="flex justify-between mb-5 md:flex-row flex-col">
         <div class="flex flex-col md:mb-0 mb-5">
           <p class="text-3xl">{p.name}</p>
-          <div class="text-lg flex gap-4 text-red-800">
-            <a href={p.github} class="hover:text-red-700">Github</a>
-            <a href={p.demo} class="hover:text-red-700">Demo</a>
+          <div class="text-lg flex gap-4 text-red-800 dark:text-red-500">
+            <a
+              href={p.github}
+              class="hover:text-red-700 dark:hover:text-red-400">Github</a
+            >
+            <a href={p.demo} class="hover:text-red-700 dark:hover:text-red-400"
+              >Demo</a
+            >
           </div>
           {#if Object.hasOwn(p, "ysws")}
             <p class="text-m">
@@ -156,7 +184,7 @@
                 <a
                   href={YSWS[p.ysws]}
                   target="_blank"
-                  class="text-red-800 hover:text-red-700"
+                  class="text-red-800 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400"
                 >
                   {p.ysws}
                 </a>
@@ -169,7 +197,7 @@
         <img
           src={p.image}
           alt={p.name}
-          class="w-auto ms-2 md:max-w-50 max-w-60 max-h-30 rounded-2xl border border-red-800 self-center"
+          class="w-auto ms-2 md:max-w-50 max-w-60 max-h-30 rounded-2xl border border-red-800 dark:border-red-500 self-center"
         />
       </div>
       <p class="text-xl">
@@ -179,7 +207,7 @@
   {/each}
 </div>
 <h1 class="text-center mt-8 mb-5 text-xl">favorite foods :3</h1>
-<hr class="text-red-800"/>
+<hr class="text-red-800 dark:border-red-500" />
 <Marquee gap="10rem" class="text-2xl overflow-hidden my-5">
   <span>Idly</span>
   <span>Chocolate</span>
@@ -190,12 +218,19 @@
   <span>Burgers</span>
   <span>Cake</span>
 </Marquee>
-<hr class="text-red-800"/>
+<hr class="text-red-800 dark:border-red-500" />
 <h1 class="text-center mt-8 mb-5 text-xl">social media :3</h1>
 <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 grid-col-1 gap-5 mx-10">
   {#each socialMedia as s}
-    <div class="rounded-xl border border-red-800 p-5 flex flex-col gap-5">
-      <a href={s.link} target="_blank" class="text-3xl text-red-800 hover:text-red-700">{s.name}</a>
+    <div
+      class="rounded-xl border border-red-800 dark:border-red-500 p-5 flex flex-col gap-5 hover:shadow-xl shadow-red-300 dark:shadow-red-700"
+    >
+      <a
+        href={s.link}
+        target="_blank"
+        class="text-3xl text-red-800 dark:text-red-500 hover:text-red-700"
+        >{s.name}</a
+      >
       <p class="text-xl">
         {@html s.description}
       </p>
@@ -203,6 +238,15 @@
   {/each}
 </div>
 
-<footer class="flex justify-center text-xl py-5 bg-[#f2d4cb] mt-8">
-  by sage with {":3"}
+<footer
+  class="flex justify-between text-xl px-10 py-5 bg-[#f2d4cb] dark:bg-red-950 mt-8"
+>
+  <p>by sage with {":3"}</p>
+  <button onclick={() => (theme = theme == "dark" ? "light" : "dark")} class="dark:bg-[#f1ded9] bg-[#260902] dark:text-black text-white rounded-2xl p-2">
+    {#if theme == "dark"}
+      <SunIcon />
+    {:else}
+      <MoonIcon />
+    {/if}
+  </button>
 </footer>

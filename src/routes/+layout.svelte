@@ -22,8 +22,6 @@
 
   <style>
     body {
-      background: #f1ded9;
-      min-height: 100vh;
       font-family: "Saira", sans-serif;
     }
   </style>
