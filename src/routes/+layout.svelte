@@ -1,6 +1,6 @@
 <script lang="ts">
   import "../app.css";
-  import favicon from "$lib/assets/favicon.svg";
+  import choco from "$lib/assets/choco.png";
 
   let { children } = $props();
 </script>
@@ -17,7 +17,8 @@
     rel="stylesheet"
   />
 
-  <link rel="icon" href={favicon} />
+  <link rel="icon" href={choco} />
+  <title>Sage's Portfolio</title>
 
   <style>
     body {

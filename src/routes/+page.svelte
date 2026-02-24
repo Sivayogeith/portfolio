@@ -1,12 +1,12 @@
 <script lang="ts">
   import Marquee from "svelte-fast-marquee";
-  import choco from "$lib/assets/choco.jpeg";
+  import choco from "$lib/assets/choco.png";
 
   const YSWS: { [type: string]: string } = {
     "Summer of Making": "https://summer.hackclub.com",
     Siege: "https://siege.hackclub.com",
     Carnival: "https://carnival.hackclub.com/",
-    Flavourtown: "https://flavourtown.hackclub.com/",
+    Flavortown: "https://flavortown.hackclub.com/",
   };
 
   const projects = [
@@ -43,7 +43,7 @@
       demo: "",
       description: "This website!",
       image: "/portfolio.png",
-      ysws: "Flavourtown",
+      ysws: "Flavortown",
     },
     {
       name: "Math Clicker",
@@ -138,9 +138,9 @@
   </div>
 
   <div
-    class="flex flex-col items-center border border-black rounded-4xl lg:w-[30vw] justify-center lg:ms-20 p-10 text-xl gap-1"
+    class="flex flex-col border border-red-800 rounded-4xl lg:w-[30vw] justify-center lg:ms-20 p-10 text-xl gap-1"
   >
-    <p class="text-2xl h-10 font-semibold">fun facts!</p>
+    <p class="text-2xl mb-5 font-semibold">fun facts!</p>
     <p>born on 16th November 2011</p>
     <p>not a furry, i just love cats :3</p>
     <p>american indian</p>
@@ -151,7 +151,7 @@
 
 <div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-5 mx-10">
   {#each projects as p}
-    <div class="rounded-xl border p-5">
+    <div class="rounded-xl border border-red-800 p-5">
       <div class="flex justify-between mb-5">
         <div class="flex flex-col">
           <p class="text-3xl">{p.name}</p>
@@ -179,7 +179,7 @@
         <img
           src={p.image}
           alt={p.name}
-          class="h-auto max-w-50 max-h-30 rounded-2xl"
+          class="h-auto max-w-50 max-h-30 rounded-2xl border border-red-800"
         />
       </div>
       <p class="text-xl">
@@ -189,7 +189,7 @@
   {/each}
 </div>
 <h1 class="text-center mt-8 mb-5 text-xl">favorite foods :3</h1>
-<hr>
+<hr class="text-red-800"/>
 <Marquee gap="10rem" class="text-2xl overflow-hidden my-5">
   <span>Idly</span>
   <span>Chocolate</span>
@@ -200,11 +200,11 @@
   <span>Burgers</span>
   <span>Cake</span>
 </Marquee>
-<hr/>
+<hr class="text-red-800"/>
 <h1 class="text-center mt-8 mb-5 text-xl">social media :3</h1>
 <div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-5 mx-10">
   {#each socialMedia as s}
-    <div class="rounded-xl border p-5 flex flex-col gap-5">
+    <div class="rounded-xl border border-red-800 p-5 flex flex-col gap-5">
       <a href={s.link} target="_blank" class="text-3xl text-red-800 hover:text-red-700">{s.name}</a>
       <p class="text-xl">
         {@html s.description}
