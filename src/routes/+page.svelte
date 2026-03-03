@@ -157,6 +157,19 @@
       </p>
     </div>
   </div>
+
+  <div class="flex flex-col">
+    <button
+      onclick={() => (theme = theme == "dark" ? "light" : "dark")}
+      class="dark:bg-[#f1ded9] bg-[#260902] dark:text-black text-white rounded-full p-2"
+    >
+      {#if theme == "dark"}
+        <SunIcon />
+      {:else}
+        <MoonIcon />
+      {/if}
+    </button>
+  </div>
 </div>
 <h1 class="text-center mt-8 mb-5 text-xl">projects :3</h1>
 
@@ -239,14 +252,7 @@
 </div>
 
 <footer
-  class="flex justify-between text-xl px-10 py-5 bg-[#f2d4cb] dark:bg-red-950 mt-8"
+  class="flex justify-center text-xl px-10 py-5 bg-[#f2d4cb] dark:bg-red-950 mt-8"
 >
   <p>by sage with {":3"}</p>
-  <button onclick={() => (theme = theme == "dark" ? "light" : "dark")} class="dark:bg-[#f1ded9] bg-[#260902] dark:text-black text-white rounded-2xl p-2">
-    {#if theme == "dark"}
-      <SunIcon />
-    {:else}
-      <MoonIcon />
-    {/if}
-  </button>
 </footer>
